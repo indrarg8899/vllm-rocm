@@ -1,0 +1,41 @@
+# Serving configuration for vLLM ROCm
+server:
+  host: "0.0.0.0"
+  port: 8000
+  workers: 1
+
+model:
+  name: "meta-llama/Llama-3.1-70B-Instruct"
+  tensor_parallel_size: 4
+  dtype: "fp16"
+  max_model_len: 4096
+  gpu_memory_utilization: 0.90
+
+attention:
+  block_size: 16
+  use_flash_attention: true
+  paged_kv_cache: true
+
+scheduling:
+  max_batch_size: 64
+  max_prefill_tokens: 8192
+  priority_scheduling: true
+  preemption_threshold: 2
+
+generation:
+  temperature: 1.0
+  top_p: 1.0
+  top_k: 50
+  repetition_penalty: 1.1
+  max_tokens: 2048
+
+rocm:
+  hip_visible_devices: "0,1,2,3,4,5,6,7"
+  hsa_enable_sdma: 0
+  gpu_max_hw_scheduling: 1
+  pytorch_hip_alloc_conf: "expandable_segments:True"
+
+monitoring:
+  enable_metrics: true
+  metrics_port: 9090
+  log_requests: true

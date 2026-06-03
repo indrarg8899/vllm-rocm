@@ -1,0 +1,14 @@
+# Llama 3 70B Instruct - 2x MI300X FP8
+model: meta-llama/Meta-Llama-3-70B-Instruct
+tensor_parallel_size: 2
+quantization: fp8
+dtype: auto
+max_model_len: 8192
+block_size: 16
+gpu_memory_utilization: 0.92
+swap_space_gb: 8
+max_num_batched_tokens: 8192
+max_num_seqs: 128
+preemption_mode: swap
+scheduler_policy: fcfs
+enforce_eager: false

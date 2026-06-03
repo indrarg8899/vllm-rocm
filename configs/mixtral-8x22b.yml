@@ -1,0 +1,14 @@
+# Mixtral 8x22B Instruct - 2x MI300X FP16
+model: mistralai/Mixtral-8x22B-Instruct-v0.1
+tensor_parallel_size: 2
+quantization: null
+dtype: auto
+max_model_len: 4096
+block_size: 16
+gpu_memory_utilization: 0.92
+swap_space_gb: 16
+max_num_batched_tokens: 4096
+max_num_seqs: 64
+preemption_mode: swap
+scheduler_policy: fcfs
+enforce_eager: false
